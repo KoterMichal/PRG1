@@ -151,7 +151,9 @@ auto main(int argc, char* argv[]) -> int
         }
     }
 
-    auto result = pop_top(stack);
-    std::cout << result << "\n";
+    if (argv[argc+1] != "p") {
+        std::cout << pop_top(stack) << "\n";
+    }
+
     return 0;
 }
