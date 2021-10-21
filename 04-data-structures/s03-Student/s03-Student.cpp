@@ -18,7 +18,7 @@ auto Student::Student::to_string() const -> std::string
 
 auto main() -> int{
 
-    auto me = Student::Student{"Michał", "Koter", "s24569", 1, 3.567};
-    std::cout << me.to_string() << "\n";
+    auto someone = Student::Student{"Adam", "Adamski", "s12345", 1, 3.567};
+    std::cout << someone.to_string() << "\n";
     return 0;
 }
