@@ -15,6 +15,7 @@ auto main(int argc, char* argv[]) -> int
                     std::cout << argv[i] << " ";
                 }
             }
+            return 0;
         }
 
         if(argv[1][1] == 'n'){
