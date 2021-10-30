@@ -205,24 +205,23 @@ auto main() -> int
     std::cout << "to_string()\n" << time.to_string() << "\n";
 
     time = s24569::Time{23,59,59};
-    std::cout << "next_hour()\n" << time.to_string() << "\n";
+    std::cout << "next_hour()\n" << time.to_string() << " -> ";
     time.next_hour();
     std::cout << time.to_string() << "\n";
-    time.next_second();
 
     time = s24569::Time{23,59,59};
-    std::cout << "next_minute()\n" << time.to_string() << "\n";
+    std::cout << "next_minute()\n" << time.to_string() << " -> ";
     time.next_minute();
     std::cout << time.to_string() << "\n";
 
     time = s24569::Time{23,59,59};
-    std::cout << "next_second()\n" << time.to_string() << "\n";
+    std::cout << "next_second()\n" << time.to_string() << " -> ";
     time.next_second();
     std::cout << time.to_string() << "\n";
 
 // time of day
     time = s24569::Time{23,59,59};
-    std::cout << "to_sring(time_of_day())\n" << time.to_string() << "\n"
+    std::cout << "to_sring(time_of_day())\n" << time.to_string() << " -> "
               << time.to_string(time.time_of_day()) << "\n";
 
 // arithmetic
@@ -242,7 +241,7 @@ auto main() -> int
     time = s24569::Time{20,10,30};
     time2 = s24569::Time{4,36,23};
     std::cout << "operator<\n"
-              << time.to_string() << " < " << time2.to_string() << "\n";
+              << time.to_string() << " < " << time2.to_string() << " -> ";
     if (time < time2){
         std::cout << "TRUE\n";
     } else {
@@ -250,7 +249,7 @@ auto main() -> int
     }
 
     std::cout << "operator>\n"
-              << time.to_string() << " > " << time2.to_string() << "\n";
+              << time.to_string() << " > " << time2.to_string() << " -> ";
     if (time > time2){
         std::cout << "TRUE\n";
     } else {
@@ -258,7 +257,7 @@ auto main() -> int
     }
 
     std::cout << "operator==\n"
-              << time.to_string() << " == " << time2.to_string() << "\n";
+              << time.to_string() << " == " << time2.to_string() << " -> ";
     if (time == time2){
         std::cout << "TRUE\n";
     } else {
@@ -266,7 +265,7 @@ auto main() -> int
     }
 
     std::cout << "operator!=\n"
-              << time.to_string() << " != " << time2.to_string() << "\n";
+              << time.to_string() << " != " << time2.to_string() << " -> ";
     if (time > time2){
         std::cout << "TRUE\n";
     } else {
@@ -276,15 +275,15 @@ auto main() -> int
 // seconds to midnight
     time = s24569::Time{14,30,30};
     std::cout << "count_seconds()\n"
-              << time.to_string() << "\n"
+              << time.to_string() << " -> "
               << time.count_seconds() << "\n";
 
     std::cout << "count_minutes()\n"
-              << time.to_string() << "\n"
+              << time.to_string() << " -> "
               << time.count_minutes() << "\n";
 
     std::cout << "time_to_midnight()\n"
-              << time.to_string() << "\n";
+              << time.to_string() << " -> ";
     auto to_midnight =  time.time_to_midnight();
     std::cout << to_midnight.to_string() << "\n";
 
