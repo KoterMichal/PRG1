@@ -133,7 +133,7 @@ auto main(int argc, char* argv[]) -> int
                 evaluate_multiplication(stack);
             } else if (each == "/") {
                 evaluate_division(stack);
-            } else if (each == "\/\/") {
+            } else if (each == "/""/") {
                 evaluate_division_integer(stack);
             } else if (each == "%") {
                 evaluate_modulo(stack);
@@ -149,10 +149,6 @@ auto main(int argc, char* argv[]) -> int
         } catch (std::logic_error const& e) {
             std::cerr << "error: " << each << ": " << e.what() << "\n";
         }
-    }
-
-    if (argv[argc+1] != "p") {
-        std::cout << pop_top(stack) << "\n";
     }
 
     return 0;
