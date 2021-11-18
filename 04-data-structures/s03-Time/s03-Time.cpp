@@ -1,70 +1,64 @@
 #include <iostream>
 #include "Time.h"
 
-// time- functions
-auto s24569::Time::to_string() const -> std::string
-{
-    auto out = std::ostringstream{};
 
-    if (hour < 10){
-        out << "0" << hour << ":";
+auto main() -> int
+{
+// time
+    auto time = s24569::Time{23, 59, 59};
+    std::cout << "to_string()\n" << time.to_string() << "\n";
+
+    time = s24569::Time{23,59,59};
+    std::cout << "next_hour()\n" << time.to_string() << " -> ";
+    time.next_hour();
+    std::cout << time.to_string() << "\n";
+
+    time = s24569::Time{23,59,59};
+    std::cout << "next_minute()\n" << time.to_string() << " -> ";
+    time.next_minute();
+    std::cout << time.to_string() << "\n";
+
+    time = s24569::Time{23,59,59};
+    std::cout << "next_second()\n" << time.to_string() << " -> ";
+    time.next_second();
+    std::cout << time.to_string() << "\n";
+
+// time of day
+    time = s24569::Time{23,59,59};
+    std::cout << "to_sring(time_of_day())\n" << time.to_string() << " -> "
+              << time.to_string(time.time_of_day()) << "\n";
+
+// arithmetic
+    time = s24569::Time{20,10,30};
+    auto time2 = s24569::Time{4,36,23};
+    auto time3 = time + time2;
+
+    std::cout << "operator+\n"
+              << time.to_string() << " + " << time2.to_string()
+              << " = " << time3.to_string() << "\n";
+
+    time3 = time - time2;
+    std::cout << "operator-\n"
+              << time.to_string() << " - " << time2.to_string()
+              << " = " << time3.to_string() << "\n";
+
+    time = s24569::Time{20,10,30};
+    time2 = s24569::Time{4,36,23};
+    std::cout << "operator<\n"
+              << time.to_string() << " < " << time2.to_string() << " -> ";
+    if (time < time2){
+        std::cout << "TRUE\n";
     } else {
-        out << hour << ":";
+        std::cout << "FASLE\n";
     }
 
-    if (minute < 10){
-        out << "0" << minute << ":";
+    std::cout << "operator>\n"
+              << time.to_string() << " > " << time2.to_string() << " -> ";
+    if (time > time2){
+        std::cout << "TRUE\n";
     } else {
-        out << minute << ":";
+        std::cout << "FALSE\n";
     }
-
-    if (second < 10){
-        out << "0" << second;
-    } else {
-        out << second;
-    }
-
-    return out.str();
-}
-
-auto s24569::Time::next_hour() -> void
-{
-    hour++;
-    if (hour > 23){
-        hour -= 24;
-    }
-}
-
-auto s24569::Time::next_minute() -> void
-{
-    minute++;
-    if (minute > 59){
-        minute -= 60;
-        next_hour();
-    }
-}
-
-auto s24569::Time::next_second() -> void
-{
-    second++;
-    if (second > 59){
-        second -= 60;
-        next_minute();
-    }
-}
-
-// time of day- functions
-
-auto s24569::Time::time_of_day() const -> Time_of_day
-{
-    if (hour > 4 && hour <10){
-        return Time_of_day::MORNING;
-    }else if(hour >9 && hour < 18){
-        return Time_of_day::AFTERNOON;
-    }else if(hour >16 && hour <23){
-        return Time_of_day::EVENING;
-    }else {
-        return Time_of_day::NIGHT;
     }
 }
 

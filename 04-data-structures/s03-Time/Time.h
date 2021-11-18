@@ -1,11 +1,10 @@
-#ifndef Time_h
-#define Time_h
+#ifndef Test_h
+#define Test_h
 
 #include <iostream>
 #include <sstream>
 #include <string>
 
-namespace s24569 {
 
 struct Time{
     int hour{};
@@ -57,11 +56,3 @@ struct Time{
     auto operator== (Time const&) const -> bool;
     auto operator!= (Time const&) const -> bool;
 
-// seconds to midnight
-    auto count_seconds() const -> uint64_t;
-    auto count_minutes() const -> uint64_t;
-    auto time_to_midnight() const -> Time;
-};
-
-}
-#endif
