@@ -7,6 +7,7 @@ std::list<Student> list_of_Student;
 
 auto display() -> void
 {
+    system("clear");
     std::cout << "The contents of the list:\n";
 
     for(std::list<Student>::iterator i=list_of_Student.begin(); i!= list_of_Student.end(); ++i)
@@ -43,6 +44,9 @@ auto push_back() -> void
 
     auto someone = Student{firstname, lastname, indexbook, i_term, f_grade};
     list_of_Student.push_back(someone);
+
+    system("clear");
+    std::cout << someone.to_string() << " has been added from the list\n\n";
 }
 
 auto remove() -> void
@@ -54,18 +58,22 @@ auto remove() -> void
     auto to_remove = Student{indexbook};
 
     list_of_Student.remove(to_remove);
+
+    system("clear");
+    std::cout << "Student with index book: " << indexbook << " has been reomved from the list\n\n";
 }
 
 auto exit() -> void
 {
-    std::cout << "End of program\n";
+    std::cout << "End of program\n\n";
 }
 
 auto main() -> int{
+    system("clear");
     std::string s_choice;
     int i_choice;
     do{
-        std::cout << "MENU\n\n"
+        std::cout << "MENU\n"
                   << "--------------------------\n"
                   << "1. Add new Student\n"
                   << "2. Show list\n"
@@ -75,6 +83,7 @@ auto main() -> int{
                   << "Choise number: ";
         std::getline(std::cin,s_choice);
         i_choice = std::stoi(s_choice);
+        std::cout << "\n";
 
         switch(i_choice) {
             case 1: push_back(); break;
