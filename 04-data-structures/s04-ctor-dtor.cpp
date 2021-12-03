@@ -12,13 +12,13 @@ struct Name{
 
     ~Name()
     {
-        std::cout << "DESTRUCTION!\n";
+        std::cout << tag << " DESTRUCTION!\n";
     }
 };
 
 auto main() -> int
 {
     auto sth= Name("something");
-    sth.~Name();
+
     return 0;
 }
