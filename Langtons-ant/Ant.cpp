@@ -53,7 +53,7 @@ auto Ant::turn(bool const& space) -> void{
 	}
 }
 
-// Ant print arrow deapending on this Direction 
+// Ant print arrow deapending on this Direction
 auto Ant::print_arrow(Direction dir) const -> void{
 	switch(dir){
 		case Direction::NORTH:
@@ -242,10 +242,8 @@ auto main() -> int
         my_border();
         refresh();
         ch = getch();
-        if(colision_detection_set(green_ant, red_ant, ch)){         
+        if(colision_detection_set(green_ant, red_ant, ch)){
             green_ant.set(ch);
-        } else {
-            printw("This move is not possible, try another.\n"); //nie dziala
         }
     }while(ch!=10);
 
@@ -282,9 +280,9 @@ auto main() -> int
         my_border();
         refresh();
         ch = getch();
-        if(colision_detection_set(blue_ant, red_ant, ch) && colision_detection_set(blue_ant, green_ant, ch)){         
+        if(colision_detection_set(blue_ant, red_ant, ch) && colision_detection_set(blue_ant, green_ant, ch)){
             blue_ant.set(ch);
-        } 
+        }
     }while(ch!=10);
 
 
@@ -418,8 +416,8 @@ auto instruction_set() -> void{
 
 auto instruction_action() -> void{
     printw("Instruction:\n");
-    printw("press KEY_UP to speed up ant move twice\n");
-    printw("press KEY_DOWN to slow down ant move twice\n");
+    printw("press KEY_UP to speed up program twice\n");
+    printw("press KEY_DOWN to slow down program twice\n");
     printw("press CTRL+C to close program\n");
 }
 
